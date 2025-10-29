@@ -22,6 +22,11 @@ export default function Navbar() {
                         </a>
                     </li>
                     <li>
+                        <a href="#add-event" className="hover:text-yellow-400 transition-colors">
+                            Tambah Event
+                        </a>
+                    </li>
+                    <li>
                         <a href="#contact" className="hover:text-yellow-400 transition-colors">
                             Contact
                         </a>
@@ -59,6 +64,11 @@ export default function Navbar() {
                 <li>
                     <a href="#events" className="block py-2 text-gray-300 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>
                         Events
+                    </a>
+                </li>
+                <li>
+                    <a href="#add-event" className="block py-2 text-gray-300 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>
+                        Tambah Event
                     </a>
                 </li>
                 <li>
