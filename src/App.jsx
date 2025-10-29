@@ -16,7 +16,6 @@ export default function App() {
       </div>
 
       <div id="events" className="bg-[#FFFFFF] my-10">
-          
         <CardEvent />
       </div>
 
