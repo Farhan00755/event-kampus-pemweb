@@ -1,70 +1,72 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export default function Navbar() {
-    const [open, setOpen] = useState(false);
-
-    const links = [
-        { href: "#home", label: "Home" },
-        // { href: "#about", label: "About" },
-        { href: "#events", label: "Events" },
-        { href: "#contact", label: "Contact" },
-    ];
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="bg-[#0A2A4D] shadow-lg sticky top-0 z-50 opacity-90">
-            <nav className="container mx-auto px-4 py-4" role="navigation" aria-label="Main navigation">
-                <div className="flex items-center justify-between">
-                    {/* Brand/Logo */}
-                    <div className="flex items-center gap-2 text-white font-bold text-xl">
-                        <span>Event Kampus</span>
-                    </div>
+        <header className="bg-[#0A2A4D] shadow-lg sticky top-0 z-50 opacity-90 relative">
+            <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+                <a href="#home" className="text-xl font-bold text-white">
+                    EventKampus
+                </a>
 
-                    {/* Mobile Menu Toggle */}
-                    <button
-                        className="md:hidden text-white text-3xl focus:outline-none hover:text-yellow-400 transition-colors"
-                        aria-controls="primary-navigation"
-                        aria-expanded={open}
-                        onClick={() => setOpen((v) => !v)}
-                        title="Toggle menu"
-                    >
-                        {open ? "✕" : "☰"}
-                    </button>
+                <ul className="hidden md:flex gap-6 text-sm text-gray-300">
+                    <li>
+                        <a href="#home" className="hover:text-yellow-400 transition-colors">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#events" className="hover:text-yellow-400 transition-colors">
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" className="hover:text-yellow-400 transition-colors">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex gap-6">
-                        {links.map((l) => (
-                            <a
-                                key={l.href}
-                                className="text-white hover:text-yellow-400 font-medium transition-colors duration-300 hover:scale-105 transform"
-                                href={l.href}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Mobile Navigation */}
-                <div
-                    id="primary-navigation"
-                    className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-                        open ? "max-h-64 opacity-100 mt-4" : "max-h-0 opacity-0"
-                    }`}
+                <button
+                    className="md:hidden p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                    aria-label="Toggle menu"
                 >
-                    <div className="flex flex-col gap-3 py-2">
-                        {links.map((l) => (
-                            <a
-                                key={l.href}
-                                className="text-white hover:text-yellow-400 hover:bg-white/10 px-4 py-2 rounded-lg font-medium transition-all duration-200"
-                                href={l.href}
-                                onClick={() => setOpen(false)}
-                            >
-                                {l.label}
-                            </a>
-                        ))}
-                    </div>
-                </div>
+                    {isMenuOpen ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    )}
+                </button>
             </nav>
+
+            <ul
+                className={`
+                    md:hidden absolute top-full left-0 right-0 bg-[#0A2A4D] shadow-lg flex flex-col p-4 gap-4 transition-all duration-300 ease-out transform origin-top
+                    ${isMenuOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}
+                `}
+            >
+                <li>
+                    <a href="#home" className="block py-2 text-gray-300 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#events" className="block py-2 text-gray-300 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>
+                        Events
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" className="block py-2 text-gray-300 hover:text-yellow-400" onClick={() => setIsMenuOpen(false)}>
+                        Contact
+                    </a>
+                </li>
+            </ul>
         </header>
     );
 }
