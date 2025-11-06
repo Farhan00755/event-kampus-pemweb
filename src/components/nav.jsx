@@ -1,20 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [currentHash, setCurrentHash] = useState('');
-
-    useEffect(() => {
-        const handleHashChange = () => {
-            setCurrentHash(window.location.hash);
-        };
-
-        handleHashChange();
-        window.addEventListener('hashchange', handleHashChange);
-        return () => window.removeEventListener('hashchange', handleHashChange);
-    }, []);
-
-    const isActive = (hash) => currentHash === hash;
 
     return (
         <header className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 shadow-2xl sticky top-0 z-50 backdrop-blur-md bg-opacity-95 border-b border-white/10">
@@ -37,11 +24,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="#home"
-                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                                isActive('#home') || isActive('')
-                                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                    : 'text-gray-300 hover:text-white hover:bg-white/10'
-                            }`}
+                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-white/10`}
                         >
                             <span>Home</span>
                         </a>
@@ -49,11 +32,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="#events"
-                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                                isActive('#events')
-                                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                    : 'text-gray-300 hover:text-white hover:bg-white/10'
-                            }`}
+                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-white/10`}
                         >
                             <span>Events</span>
                         </a>
@@ -61,11 +40,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="#add-event"
-                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                                isActive('#add-event')
-                                    ? 'bg-gradient-to-r from-green-500 to-teal-600 text-white shadow-lg'
-                                    : 'text-gray-300 hover:text-white hover:bg-white/10'
-                            }`}
+                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-white/10`}
                         >
                             <span>Tambah Event</span>
                         </a>
@@ -73,11 +48,7 @@ export default function Navbar() {
                     <li>
                         <a
                             href="#contact"
-                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
-                                isActive('#contact')
-                                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                    : 'text-gray-300 hover:text-white hover:bg-white/10'
-                            }`}
+                            className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 text-gray-300 hover:text-white hover:bg-white/10`}
                         >
                             <span>Contact</span>
                         </a>
@@ -109,44 +80,28 @@ export default function Navbar() {
                 <div className="px-6 py-4 space-y-2">
                     <a
                         href="#home"
-                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 ${
-                            isActive('#home') || isActive('')
-                                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                : 'text-gray-300 hover:text-white hover:bg-white/10'
-                        }`}
+                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10`}
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <span>Home</span>
                     </a>
                     <a
                         href="#events"
-                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 ${
-                            isActive('#events')
-                                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                : 'text-gray-300 hover:text-white hover:bg-white/10'
-                        }`}
+                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10`}
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <span>Events</span>
                     </a>
                     <a
                         href="#add-event"
-                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 ${
-                            isActive('#add-event')
-                                ? 'bg-gradient-to-r from-green-500 to-teal-600 text-white shadow-lg'
-                                : 'text-gray-300 hover:text-white hover:bg-white/10'
-                        }`}
+                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10`}
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <span>Tambah Event</span>
                     </a>
                     <a
                         href="#contact"
-                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 ${
-                            isActive('#contact')
-                                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                                : 'text-gray-300 hover:text-white hover:bg-white/10'
-                        }`}
+                        className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10`}
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <span>Contact</span>
