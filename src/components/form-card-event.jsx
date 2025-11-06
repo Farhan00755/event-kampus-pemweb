@@ -49,8 +49,6 @@ export default function FormCardEvent({ onAddEvent }) {
         image: '',
         status: 'upcoming'
       })
-      // Navigate to events page after adding
-      window.location.hash = 'events'
     }
   }
 
@@ -65,15 +63,14 @@ export default function FormCardEvent({ onAddEvent }) {
             </h2>
             <p className="text-gray-600">Isi detail event kampus Anda</p>
           </div>
-          <button
-            onClick={() => window.location.hash = 'events'}
+          {/* <button
             className="bg-white hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center space-x-2 border border-gray-200"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
             <span>Kembali ke Events</span>
-          </button>
+          </button> */}
         </div>
 
         {/* Form */}
@@ -246,9 +243,6 @@ export default function FormCardEvent({ onAddEvent }) {
               type="submit"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-200 flex items-center space-x-2 transform hover:scale-105"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
               <span>Tambah Event</span>
             </button>
           </div>

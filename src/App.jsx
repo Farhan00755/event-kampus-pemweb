@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Navbar from './components/nav.jsx'
 import Footer from './components/footer.jsx'
@@ -75,20 +75,6 @@ export default function App() {
     }
   ])
 
-  const [currentPage, setCurrentPage] = useState('events')
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.substring(1) || 'events'
-      setCurrentPage(hash)
-    }
-
-    handleHashChange() // Set initial page
-    window.addEventListener('hashchange', handleHashChange)
-
-    return () => window.removeEventListener('hashchange', handleHashChange)
-  }, [])
-
   const addEvent = (newEvent) => {
     const idNumber = (events.length + 1).toString()
     setEvents([...events, { ...newEvent, idNumber }])
@@ -113,9 +99,9 @@ export default function App() {
         <CardEvent events={events} onDeleteEvent={deleteEvent} />
       </div>
 
-      {currentPage === 'add-event' && (
+      <data id="add-event">
         <FormCardEvent onAddEvent={addEvent} />
-      )}
+      </data>
 
       <div id="contact" className="min-h-screen flex flex-col items-center text-center justify-center bg-[#E9ECEF] px-4 py-10">
         <h2 className="text-4xl mb-5 text-[#343A40]">Hubungi Kami</h2>
