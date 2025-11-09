@@ -92,7 +92,7 @@ export default function Navbar() {
             }`}>
                 <div className="px-6 py-4 space-y-2">
                     <Link
-                        to="/"
+                        to="/#home"
                         className="block px-4 py-3 rounded-xl font-medium transition-all duration-200 items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10"
                         onClick={handleMobileLinkClick}
                     >
@@ -106,7 +106,7 @@ export default function Navbar() {
                         <span>Events</span>
                     </Link>
                     <Link
-                        to="/add-event/#add-event"
+                        to="/add/#add-event"
                         className="block px-4 py-3 rounded-xl font-medium transition-all duration-200 items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10"
                         onClick={handleMobileLinkClick}
                     >
@@ -120,7 +120,7 @@ export default function Navbar() {
                         <span>Contact</span>
                     </Link>
                     <Link
-                        to="/login"
+                        to="/login/#login"
                         className="block px-4 py-3 rounded-xl font-medium transition-all duration-200 items-center space-x-3 text-gray-300 hover:text-white hover:bg-white/10"
                         onClick={handleMobileLinkClick}
                     >
