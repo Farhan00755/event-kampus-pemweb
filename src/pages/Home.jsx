@@ -26,7 +26,7 @@ export default function Home({ events, onDeleteEvent }) {
 
   return (
     <>
-      <section id="home" className="justify-center items-center flex flex-col bg-gray-900 min-h-screen border-2 rounded-4xl">
+      <section id="home" className="justify-center items-center flex flex-col bg-gray-900 min-h-screen">
         <div className="text-center">
           <h1 className="text-5xl font-bold text-white mb-6 mt-23">Selamat Datang di EventKampus</h1>
           <p className="text-xl text-gray-300 mb-8">Temukan dan ikuti berbagai event kampus menarik</p>
