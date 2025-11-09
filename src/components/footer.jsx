@@ -2,7 +2,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-gray-300 relative">
+        <footer className="bg-linear-to-r from-slate-900 via-blue-900 to-slate-900 text-gray-300 relative">
             <div className="relative py-12 px-6">
                 <div className="max-w-6xl mx-auto">
                     {/* Main Footer Content */}
@@ -10,13 +10,13 @@ export default function Footer() {
                         {/* Brand Section */}
                         <div className="md:col-span-2">
                             <div className="flex items-center space-x-3 mb-4">
-                                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                                <div className="w-10 h-10 bg-linear-to-br from-blue-400 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
                                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                    <h3 className="text-xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                                         EventKampus
                                     </h3>
                                     <p className="text-xs text-gray-400">Platform Event Kampus</p>
@@ -35,7 +35,7 @@ export default function Footer() {
                                         placeholder="Email Anda"
                                         className="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
                                     />
-                                    <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105">
+                                    <button className="px-4 py-2 bg-linear-to-r from-blue-500 to-purple-600 rounded-lg font-medium hover:shadow-lg transition-all duration-200 transform hover:scale-105">
                                         Subscribe
                                     </button>
                                 </div>
@@ -115,7 +115,7 @@ export default function Footer() {
                         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                             {/* Copyright */}
                             <p className="text-gray-400 text-sm">
-                                &copy; {currentYear} <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">EventKampus</span>. All rights reserved.
+                                &copy; {currentYear} <span className="bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-semibold">EventKampus</span>. All rights reserved.
                             </p>
 
                             {/* Social Media Links */}

@@ -1,11 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import Navbar from './components/nav.jsx'
-import Footer from './components/footer.jsx'
-import CardEvent from './components/card-event.jsx'
-import FormCardEvent from './components/form-card-event.jsx'
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/nav';
+import Footer from './components/footer';
+import Home from './pages/Home';
+import AddEvent from './pages/AddEvent';
+import LogIn from './pages/login';
 
-export default function App() {
+function App() {
   const [events, setEvents] = useState([
     {
       idNumber: "1",
@@ -75,7 +77,7 @@ export default function App() {
     }
   ])
 
-  const addEvent = (newEvent) => {
+  const handleAddEvent = (newEvent) => {
     const idNumber = (events.length + 1).toString()
     setEvents([...events, { ...newEvent, idNumber }])
   }
@@ -85,33 +87,26 @@ export default function App() {
   }
 
   return (
-    <>
-      <nav className="sticky top-0 z-50">
+    <Router>
+      <div className="min-h-screen flex flex-col bg-slate-900">
         <Navbar />
-      </nav>
-
-      <div id="home" className="flex flex-col items-center text-center justify-center bg-[#F8F9FA] px-4 py-10 min-h-screen">
-        <h1 className="text-5xl mb-5 text-[#343A40]">selamat datang di laman event kampus</h1>
-        <h3 className="text-2xl text-[#343A40]">disini kalian bisa melihat event-event yang ada di kampus</h3>
-      </div>
-
-      <div id="events" className="bg-[#FFFFFF] my-10">
-        <CardEvent events={events} onDeleteEvent={deleteEvent} />
-      </div>
-
-      <data id="add-event">
-        <FormCardEvent onAddEvent={addEvent} />
-      </data>
-
-      <div id="contact" className="min-h-screen flex flex-col items-center text-center justify-center bg-[#E9ECEF] px-4 py-10">
-        <h2 className="text-4xl mb-5 text-[#343A40]">Hubungi Kami</h2>
-        <p className="text-lg mb-3 text-[#343A40]">Jika Anda memiliki pertanyaan atau ingin mengetahui lebih lanjut tentang event kampus, jangan ragu untuk menghubungi kami!</p>
-          {/* <p className="text-lg text-[#343A40]">Email: </p> */}
-      </div>
-      
-      <footer>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home events={events} onDeleteEvent={deleteEvent} />} />
+            <Route 
+              path="/add" 
+              element={<AddEvent onAddEvent={handleAddEvent} />} 
+            />
+            <Route 
+              path="/login" 
+              element={<LogIn />} 
+            />
+          </Routes>
+        </main>
         <Footer />
-      </footer>
-    </>
+      </div>
+    </Router>
   )
 }
+
+export default App
